@@ -1,65 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Text-to-Speech Converter</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <main class="card" role="main" aria-labelledby="title">
-    <header>
-      <div class="logo">TTS</div>
-      <div>
-        <h1 id="title">Text-to-Speech Converter</h1>
-        <p class="lead">Convert text to speech using the Web Speech API. Choose a voice, adjust rate/pitch, then Play.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Rock Paper Scissors</h1>
+    <div class="choices">
+      <div class="choice" id="rock">
+        <img src="./images/rock.png" />
       </div>
-    </header>
-
-    <section class="panel">
-      <label class="field">
-        <span class="label">Text to speak</span>
-        <textarea id="text" rows="6" placeholder="Type or paste text here...">Hello — this is a text to speech test.</textarea>
-      </label>
-
-      <div class="row controls">
-        <label class="small">
-          Voice
-          <select id="voiceSelect" aria-label="Voice selection"></select>
-        </label>
-
-        <label class="small">
-          Rate <span id="rateVal">1</span>
-          <input id="rate" type="range" min="0.5" max="2" step="0.1" value="1" />
-        </label>
-
-        <label class="small">
-          Pitch <span id="pitchVal">1</span>
-          <input id="pitch" type="range" min="0" max="2" step="0.1" value="1" />
-        </label>
-
-        <label class="small">
-          Volume <span id="volVal">1</span>
-          <input id="volume" type="range" min="0" max="1" step="0.05" value="1" />
-        </label>
+      <div class="choice" id="paper">
+        <img src="./images/paper.png" />
       </div>
-
-      <div class="actions">
-        <button id="playBtn" class="btn">Play</button>
-        <button id="pauseBtn" class="btn secondary" disabled>Pause</button>
-        <button id="resumeBtn" class="btn secondary" disabled>Resume</button>
-        <button id="stopBtn" class="btn secondary" disabled>Stop</button>
+      <div class="choice" id="scissors">
+        <img src="./images/scissors.png" />
       </div>
+    </div>
 
-      <div id="status" class="muted" role="status" aria-live="polite">Ready.</div>
+    <div class="score-board">
+      <div class="score">
+        <p id="user-score">0</p>
+        <p>You</p>
+      </div>
+      <div class="score">
+        <p id="comp-score">0</p>
+        <p>Comp</p>
+      </div>
+    </div>
 
-      <details style="margin-top:12px">
-        <summary>How it works (short)</summary>
-        <p class="small">The script populates available voices (async), creates a <code>SpeechSynthesisUtterance</code> for the text, sets voice, rate, pitch and volume, and uses <code>speechSynthesis.speak()</code>. Pause/resume/stop use the API methods. Some browsers require a user gesture to start audio.</p>
-      </details>
-    </section>
-  </main>
-
-  <script src="script.js"></script>
-</body>
+    <div class="msg-container">
+      <p id="msg">Play your move</p>
+    </div>
+    <script src="app.js"></script>
+  </body>
 </html>
